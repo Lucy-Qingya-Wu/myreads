@@ -6,14 +6,12 @@ class Bookshelf extends Component{
 	render(){
 
 
-    let books = this.props.books.map((book)=>{
+    let books = this.props.books.map((book)=>
 
 
-      let {id, title, authors, imageLinks} = book;
 
-      return (<li key={id}><Book title={title} authors={authors} imageLinks={imageLinks} /></li>);
 
-    });
+      (<li key={book.id}><Book book={book} value={this.props.value} onChangeBookshelf={this.props.onChangeBookshelf}/></li>));
 
 		return (
                 <div className="bookshelf">

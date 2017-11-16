@@ -9,7 +9,7 @@ class ListBook extends Component{
       <div className="list-books">
 
         <ListBooksTitle />
-        <ListBooksContent />
+        <ListBooksContent books={this.props.books} onChangeBookshelf={this.props.onChangeBookshelf}/>
 
         <Link className="open-search" to="/search-book"></Link>
 
