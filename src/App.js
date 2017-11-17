@@ -6,14 +6,17 @@ import ListBook from './ListBook'
 import SearchBook from './SearchBook'
 
 class BooksApp extends React.Component {
-	state = {
+  constructor(props){
+    super(props);
+    this.state = {
 
-		books: []
+      books: []
 
-	}
+    };
+  }
+
 
   componentDidMount(){
-
 
 
     BooksAPI.getAll().then((books)=>{
@@ -28,8 +31,9 @@ class BooksApp extends React.Component {
   }
 
   handleChangeBookshelf = (book, shelf) => {
-
+    console.log(this.state.books)
     console.log(book.shelf, shelf)
+    BooksAPI.update(book, shelf).then(()=>{
     if (book.shelf !== shelf){
 
       if (shelf === "neverRead"){
@@ -65,8 +69,8 @@ class BooksApp extends React.Component {
 
 
 
-      BooksAPI.update(book, shelf);
-    }
+
+    }})
 
   }
 

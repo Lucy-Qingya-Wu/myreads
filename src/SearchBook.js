@@ -3,11 +3,14 @@ import * as BooksAPI from './BooksAPI'
 import {Link} from 'react-router-dom'
 import SearchBookResult from './SearchBookResult'
 class SearchBook extends Component{
-
-     state = {
-          searchResult: [],
-          query: ''
+     constructor(props){
+       super(props)
+       this.state = {
+            searchResult: [],
+            query: ''
+       }
      }
+
 
      updateQuery = (event) => {
           let query = event.target.value.trim();
@@ -16,13 +19,12 @@ class SearchBook extends Component{
 
                BooksAPI.search(query, 20).then((books)=>{
 
-
-
                     this.setState({searchResult: books});
-
 
                })
 
+          }else{
+            this.setState({searchResult: []})
           }
      }
 
